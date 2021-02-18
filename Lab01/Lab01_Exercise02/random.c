@@ -14,5 +14,6 @@ unsigned short random_ushort() {
 
 unsigned int random_uint()
 {
-	return 0;
+	rseed = RANDOM_A * rseed + RANDOM_C;
+	return rseed;
 }

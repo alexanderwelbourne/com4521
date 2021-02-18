@@ -4,26 +4,26 @@
 #include "random.h"
 
 #define NUM_VALUES 250
-int values[NUM_VALUES];
+long long int values[NUM_VALUES];
 
 int main()
 {
 
-	unsigned int sum = 0;
+	unsigned long long int sum = 0;
 	unsigned int average = 0;
-	int min = 0;
-	int max = 0;
+	long long int min = 0;
+	long long int max = 0;
 	unsigned char i = 0;
 
 	init_random();
 
 	for (i = 0; i < NUM_VALUES; i++) {
-		values[i] = random_ushort();
+		values[i] = random_uint();
 
 		sum += values[i];
 	}
 
-	average = sum / NUM_VALUES;
+	average = (unsigned int) (sum / NUM_VALUES);
 
 	for (i = 0; i < NUM_VALUES; i++) {
 		values[i] -= average;
@@ -31,9 +31,9 @@ int main()
 		max = (values[i] > max) ? values[i] : max;
 	}
 
-	printf("Sum is %u\n", sum);
+	printf("Sum is %llu\n", sum);
 	printf("Average is %u\n", average);
-	printf("Min is %d\n", min);
-	printf("Max is %d\n", max);
+	printf("Min is %lld\n", min);
+	printf("Max is %lld\n", max);
 	return 0;
 }
