@@ -18,6 +18,11 @@ int main()
     while (readLine(buffer)){
 
 		//4.5 Check that the line contains 3 letters and a spaceextract
+		if (!( isalpha(buffer[0]) && isalpha(buffer[1]) && isalpha(buffer[2]) && buffer[3] == ' ')) {
+
+			fprintf(stderr, "Incorrect command format\n");
+			continue;
+		}
 		//4.6 Extract the command and in_value using sscanf
 		if (0){ //4.7 Change condition to check command to see if it is "add"
 			sum += in_value;
